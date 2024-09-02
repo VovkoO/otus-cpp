@@ -1,13 +1,32 @@
 cmake_minimum_required(VERSION 3.12)
 
-set(PATCH_VERSION "1" CACHE INTERNAL "Patch version")
-set(PROJECT_VESRION 0.0.${PATCH_VERSION})
+option(UPDATE_VERSION "<help_text>" OFF)
+if (UPDATE_VERSION)
+    set(UPDATE_VERSION ON)
+endif()
 
-project(helloworld VERSION ${PROJECT_VESRION})
+
+# Auto update the version
+# Read the version from version.txt
+include(${CMAKE_SOURCE_DIR}/cmake/update_version.cmake)
+
+# Now PROJECT_VERSION contains the current version
+set(PROJECT_VERSION_PATCH "${PATCH_VERSION}" CACHE INTERNAL "Patch version")
+set(PROJECT_VERSION "${PROJECT_VERSION}")
+message(STATUS "PROJECT_VERSION_PATCH: ${PROJECT_VERSION_PATCH}")
+
+
+project(helloworld VERSION ${PROJECT_VERSION})
 
 option(WITH_BOOST_TEST "Whether to build Boost test" ON)
+message(STATUS "PROJECT_VERSION_PATCH: ${PROJECT_VERSION_PATCH}")
 
-configure_file(version.h.in version.h)
+configure_file(${CMAKE_SOURCE_DIR}/version.h.in ${CMAKE_BINARY_DIR}/version.h @ONLY)
+
+# add_custom_target(update_version
+#     COMMAND cd .. && ${CMAKE_COMMAND} -DUPDATE_VERSION=ON -P ${CMAKE_SOURCE_DIR}/cmake/update_version.cmake
+#     COMMENT "Updating project version..."
+# )
 
 add_executable(helloworld_cli main.cpp)
 add_library(helloworld lib.cpp)
