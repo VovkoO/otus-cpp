@@ -92,11 +92,49 @@ endif()
 
 install(TARGETS helloworld_cli RUNTIME DESTINATION bin)
 
-set(CPACK_GENERATOR DEB)
+# Define a CMake option for package type
+set(CPACK_SUPPORTED_GENERATORS "DEB" "RPM" "WIN" "ZIP")
+set(PACKAGE_TYPE "DEB" CACHE STRING "Type of package to generate (${CPACK_SUPPORTED_GENERATORS})")
+
+# Validate the PACKAGE_TYPE
+if(NOT PACKAGE_TYPE IN_LIST CPACK_SUPPORTED_GENERATORS)
+    message(FATAL_ERROR "Unsupported PACKAGE_TYPE: ${PACKAGE_TYPE}. Supported types: ${CPACK_SUPPORTED_GENERATORS}")
+endif()
+
+# Set CPack generator based on PACKAGE_TYPE
+if(PACKAGE_TYPE STREQUAL "DEB")
+    set(CPACK_GENERATOR "DEB")
+elseif(PACKAGE_TYPE STREQUAL "RPM")
+    set(CPACK_GENERATOR "RPM")
+    elseif(PACKAGE_TYPE STREQUAL "WIN")
+    set(CPACK_GENERATOR "NSIS")
+elseif(PACKAGE_TYPE STREQUAL "ZIP")
+    set(CPACK_GENERATOR "ZIP")
+else()
+    message(FATAL_ERROR "Unsupported PACKAGE_TYPE: ${PACKAGE_TYPE}")
+endif()
+
 set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
 set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
-set(CPACK_PACKAGE_CONTACT example@example.com)
+set(CPACK_PACKAGE_CONTACT bevidm@yandex.ru)
+
+
+# Windows-specific CPack configurations
+if(WIN32)
+    set(CPACK_PACKAGE_INSTALL_DIRECTORY "OtusHelloWorld")
+    set(CPACK_NSIS_DISPLAY_NAME "OtusHelloWorld")
+    set(CPACK_NSIS_CONTACT "bevidm@yandex.ru")
+    set(CPACK_NSIS_MODIFY_PATH ON)  # Option to modify system PATH
+endif()
+
+# Linux-specific dependencies
+if(CPACK_GENERATOR STREQUAL "DEB")
+    set(CPACK_DEBIAN_PACKAGE_DEPENDS "libboost-all-dev (>= 1.65.1), libgcc-s1")
+elseif(CPACK_GENERATOR STREQUAL "RPM")
+    set(CPACK_RPM_PACKAGE_REQUIRES "boost-devel >= 1.65.1, gcc")
+endif()
+
 include(CPack)
 
 if(WITH_BOOST_TEST)
