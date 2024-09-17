@@ -25,7 +25,7 @@ jobs:
       - name: Boost install
         run: sudo apt-get update && sudo apt-get install libboost-test-dev -y
       - name: Project build
-         run: |
+        run: |
           cmake . -DPATCH_VERSION=${{ github.run_number }} -DWITH_BOOST_TEST=ON
           cmake --build .
           cmake --build . --target test
