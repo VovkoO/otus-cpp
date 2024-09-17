@@ -6,6 +6,7 @@ set(PROJECT_VESRION 0.0.${PATCH_VERSION})
 project(helloworld VERSION ${PROJECT_VESRION})
 
 option(WITH_BOOST_TEST "Whether to build Boost test" ON)
+option(WITH_GTEST_TEST "Whether to build Google test" ON)
 
 configure_file(version.h.in version.h)
 
@@ -45,6 +46,21 @@ if(WITH_BOOST_TEST)
     )
 endif()
 
+if(WITH_GTEST_TEST)
+    find_package(GTest REQUIRED)
+	add_executable(test_version_gtest test_version_gtest.cpp)
+	
+	target_include_directories(test_version_gtest
+		PRIVATE ${GTEST_INCLUDE_DIRS}
+	)
+
+	target_link_libraries(
+		test_version_gtest
+		${GTEST_BOTH_LIBRARIES}
+		helloworld
+	)
+endif()
+
 if (MSVC)
     target_compile_options(helloworld_cli PRIVATE
         /W4
@@ -54,6 +70,10 @@ if (MSVC)
     )
     if(WITH_BOOST_TEST)
         target_compile_options(test_version PRIVATE
+            /W4
+        )
+	if(WITH_GTEST_TEST)
+        target_compile_options(test_version_gtest PRIVATE
             /W4
         )
     endif()
@@ -68,6 +88,10 @@ else ()
         target_compile_options(test_version PRIVATE
             -Wall -Wextra -pedantic -Werror
         )
+	if(WITH_GTEST_TEST)
+        target_compile_options(test_version_gtest PRIVATE
+            -Wall -Wextra -pedantic -Werror
+        )
     endif()
 endif()
 
@@ -80,7 +104,12 @@ set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
 set(CPACK_PACKAGE_CONTACT example@example.com)
 include(CPack)
 
-if(WITH_BOOST_TEST)
-    enable_testing()
+enable_testing()
+
+if(WITH_BOOST_TEST)    
     add_test(test_version test_version)
+endif()
+
+if(WITH_BOOST_TEST)    
+    add_test(test_version_gtest test_version_gtest)
 endif()
