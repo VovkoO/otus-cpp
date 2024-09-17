@@ -72,7 +72,7 @@ if (MSVC)
         target_compile_options(test_version PRIVATE
             /W4
         )
-	if(WITH_GTEST_TEST)
+    if(WITH_GTEST_TEST)
         target_compile_options(test_version_gtest PRIVATE
             /W4
         )
@@ -88,7 +88,7 @@ else ()
         target_compile_options(test_version PRIVATE
             -Wall -Wextra -pedantic -Werror
         )
-	if(WITH_GTEST_TEST)
+    if(WITH_GTEST_TEST)
         target_compile_options(test_version_gtest PRIVATE
             -Wall -Wextra -pedantic -Werror
         )
