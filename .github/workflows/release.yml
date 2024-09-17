@@ -23,12 +23,13 @@ jobs:
           sudo cmake .
           sudo cmake --build . --target install
       - name: Boost install
-      - run: sudo apt-get update && sudo apt-get install libboost-test-dev -y
+        run: sudo apt-get update && sudo apt-get install libboost-test-dev -y
       - name: Project build
-      - run: cmake . -DPATCH_VERSION=${{ github.run_number }} -DWITH_BOOST_TEST=ON
-      - run: cmake --build .
-      - run: cmake --build . --target test
-      - run: cmake --build . --target package
+         run: |
+          cmake . -DPATCH_VERSION=${{ github.run_number }} -DWITH_BOOST_TEST=ON
+          cmake --build .
+          cmake --build . --target test
+          cmake --build . --target package
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
