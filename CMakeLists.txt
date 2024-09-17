@@ -72,6 +72,7 @@ if (MSVC)
         target_compile_options(test_version PRIVATE
             /W4
         )
+    endif()
     if(WITH_GTEST_TEST)
         target_compile_options(test_version_gtest PRIVATE
             /W4
@@ -88,6 +89,7 @@ else ()
         target_compile_options(test_version PRIVATE
             -Wall -Wextra -pedantic -Werror
         )
+    endif()
     if(WITH_GTEST_TEST)
         target_compile_options(test_version_gtest PRIVATE
             -Wall -Wextra -pedantic -Werror
