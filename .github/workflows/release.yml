@@ -18,6 +18,7 @@ jobs:
       - run: sudo apt-get update && sudo apt-get install libboost-test-dev ninja-build libgtest-dev -y
       - run: cmake . -DPATCH_VERSION=${{ github.run_number }} -DWITH_BOOST_TEST=ON -G Ninja
       - run: cmake --build .
+      - run: cmake --build . --target test
       - run: cmake --build . --target package
       - name: Create Release
         id: create_release
@@ -30,7 +31,7 @@ jobs:
           makeLatest: true
 
   # Non-master build scenario without packaging and release
-  build-wo-release:
+  build-and-test:
     if: github.ref != 'refs/heads/master' # Run on non-master branches
     runs-on: ubuntu-latest
     steps:
@@ -38,7 +39,6 @@ jobs:
         with:
           submodules: true
       - run: sudo apt-get update && sudo apt-get install libboost-test-dev ninja-build libgtest-dev -y
-      - run: cd /usr/src/gtest && cmake -Bbuild -S. && cmake --build build && cp build/lib/*.a /usr/lib
       - run: cmake . -DPATCH_VERSION=${{ github.run_number }} -DWITH_BOOST_TEST=ON -G Ninja
       - run: cmake --build .
       - run: cmake --build . --target test
