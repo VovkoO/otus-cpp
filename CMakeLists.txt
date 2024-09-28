@@ -4,7 +4,7 @@ set(CMAKE_C_COMPILER clang)
 set(CMAKE_CXX_COMPILER clang++)
 
 
-option(UPDATE_VERSION "<help_text>" OFF)
+option(UPDATE_VERSION "whether to update version in <version.txt>" OFF)
 if (UPDATE_VERSION)
     set(UPDATE_VERSION ON)
 endif()
