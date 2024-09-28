@@ -9,7 +9,6 @@ on:
 jobs:
   release:
     if: github.ref == 'refs/heads/master' # Only run on master branch
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
