@@ -23,11 +23,6 @@ message(STATUS "PROJECT_VERSION_PATCH: ${PROJECT_VERSION_PATCH}")
 
 configure_file(${CMAKE_SOURCE_DIR}/version.h.in ${CMAKE_BINARY_DIR}/version.h @ONLY)
 
-# add_custom_target(update_version
-#     COMMAND cd .. && ${CMAKE_COMMAND} -DUPDATE_VERSION=ON -P ${CMAKE_SOURCE_DIR}/cmake/update_version.cmake
-#     COMMENT "Updating project version..."
-# )
-
 add_executable(helloworld_cli main.cpp)
 add_library(helloworld lib.cpp)
 
