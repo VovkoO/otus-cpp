@@ -25,7 +25,14 @@ RUN apt-get update && \
     vim \
     sudo \
     libboost-all-dev \
+    libgtest-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+
+RUN cd /usr/src/gtest && \
+    cmake . && \
+    make && \
+    cp lib/*.a /usr/lib
 
 # Create a group and user with the specified UID and GID
 RUN groupadd -g $GID developer && \
@@ -45,9 +52,8 @@ RUN chown -R developer:developer /usr/src/app
 USER developer
 
 # Build the project using CMake
-RUN mkdir -p build && cd build && \
-    cmake .. -G Ninja && \
-    ninja
+RUN cmake -Bbuild -S. -G Ninja && \
+    cmake --build build
 
 # Set the default command to run when the container starts
 CMD ["/bin/bash"]

@@ -22,7 +22,7 @@ message(STATUS "PROJECT_VERSION_PATCH: ${PROJECT_VERSION_PATCH}")
 
 project(helloworld VERSION ${PROJECT_VERSION})
 
-option(WITH_BOOST_TEST "Whether to build Boost test" ON)
+option(WITH_GTEST "Whether to build Google test" ON)
 message(STATUS "PROJECT_VERSION_PATCH: ${PROJECT_VERSION_PATCH}")
 
 configure_file(${CMAKE_SOURCE_DIR}/version.h.in ${CMAKE_BINARY_DIR}/version.h @ONLY)
@@ -43,24 +43,20 @@ target_link_libraries(helloworld_cli PRIVATE
     helloworld
 )
 
-if(WITH_BOOST_TEST)
-    find_package(Boost COMPONENTS unit_test_framework REQUIRED)
-    add_executable(test_version test_version.cpp)
+if(WITH_GTEST)
+    find_package(GTest REQUIRED)
 
-    set_target_properties(test_version PROPERTIES
+    include_directories(${GTEST_INCLUDE_DIRS})
+
+    add_executable(gtest_version gtest_version.cpp)
+
+    set_target_properties(gtest_version PROPERTIES
         CXX_STANDARD 14
         CXX_STANDARD_REQUIRED ON
     )
 
-    set_target_properties(test_version PROPERTIES
-        COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
-        INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
-    )
+    target_link_libraries(gtest_version helloworld ${GTEST_LIBRARIES} pthread)
 
-    target_link_libraries(test_version
-        ${Boost_LIBRARIES}
-        helloworld
-    )
 endif()
 
 if (MSVC)
@@ -70,8 +66,8 @@ if (MSVC)
     target_compile_options(helloworld PRIVATE
         /W4
     )
-    if(WITH_BOOST_TEST)
-        target_compile_options(test_version PRIVATE
+    if(WITH_GTEST)
+        target_compile_options(gtest_version PRIVATE
             /W4
         )
     endif()
@@ -82,8 +78,8 @@ else ()
     target_compile_options(helloworld PRIVATE
         -Wall -Wextra -pedantic -Werror
     )
-    if(WITH_BOOST_TEST)
-        target_compile_options(test_version PRIVATE
+    if(WITH_GTEST)
+        target_compile_options(gtest_version PRIVATE
             -Wall -Wextra -pedantic -Werror
         )
     endif()
@@ -136,7 +132,9 @@ endif()
 
 include(CPack)
 
-if(WITH_BOOST_TEST)
+if(WITH_GTEST)
     enable_testing()
-    add_test(test_version test_version)
+    add_test(gtest_version gtest_version)
+    include(GoogleTest)
+    gtest_discover_tests(gtest_version)
 endif()
