@@ -1,9 +1,7 @@
-#include <cassert>
-#include <cstdlib>
 #include <iostream>
 #include <string>
 #include <vector>
-#include <ranges>
+#include <algorithm>
 
 using namespace std;
 
@@ -86,7 +84,7 @@ int main()
             ip_pool.push_back(res);
         }
 
-        std::sort(ip_pool.rbegin(), ip_pool.rend());
+        sort(ip_pool.rbegin(), ip_pool.rend());
 
         for(auto ip = ip_pool.cbegin(); ip != ip_pool.cend(); ++ip)
         {
