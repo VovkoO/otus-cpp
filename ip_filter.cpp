@@ -86,7 +86,7 @@ int main()
             ip_pool.push_back(res);
         }
 
-        sort(ip_pool.rbegin(), ip_pool.rend());
+        std::sort(ip_pool.rbegin(), ip_pool.rend());
 
         for(auto ip = ip_pool.cbegin(); ip != ip_pool.cend(); ++ip)
         {
