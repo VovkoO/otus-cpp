@@ -1,10 +1,4 @@
 /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -S /Users/vladimir.razdrogin/dev/otus-cpp -B /Users/vladimir.razdrogin/dev/otus-cpp/cmake-build-debug
-CMake Error at /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/FindPackageHandleStandardArgs.cmake:230 (message):
-  Could NOT find Boost (missing: Boost_INCLUDE_DIR unit_test_framework)
-Call Stack (most recent call first):
-  /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/FindPackageHandleStandardArgs.cmake:600 (_FPHSA_FAILURE_MESSAGE)
-  /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/FindBoost.cmake:2393 (find_package_handle_standard_args)
-  CMakeLists.txt:29 (find_package)
-
-
--- Configuring incomplete, errors occurred!
+-- Configuring done (0.0s)
+-- Generating done (0.1s)
+-- Build files have been written to: /Users/vladimir.razdrogin/dev/otus-cpp/cmake-build-debug

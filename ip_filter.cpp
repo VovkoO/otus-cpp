@@ -68,7 +68,7 @@ void filterAny(const vector<vector<int> >& vec, int i) {
 }
 
 
-int main(int argc, char const *argv[])
+int main()
 {
     try
     {
