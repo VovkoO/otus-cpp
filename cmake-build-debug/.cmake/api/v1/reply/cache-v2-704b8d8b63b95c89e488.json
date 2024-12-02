@@ -899,7 +899,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "ip_filter"
+			"value" : "allocator"
 		},
 		{
 			"name" : "CMAKE_PROJECT_VERSION",
@@ -1376,6 +1376,42 @@
 			],
 			"type" : "BOOL",
 			"value" : "ON"
+		},
+		{
+			"name" : "allocator_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/vladimir.razdrogin/dev/otus-cpp/cmake-build-debug"
+		},
+		{
+			"name" : "allocator_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "allocator_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/vladimir.razdrogin/dev/otus-cpp"
 		},
 		{
 			"name" : "helloworld_BINARY_DIR",

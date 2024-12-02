@@ -52,6 +52,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/ip_filter_cli.dir/DependInfo.cmake"
-  "CMakeFiles/ip_filter.dir/DependInfo.cmake"
+  "CMakeFiles/allocator_cli.dir/DependInfo.cmake"
+  "CMakeFiles/allocator.dir/DependInfo.cmake"
   )
