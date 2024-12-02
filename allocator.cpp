@@ -37,7 +37,7 @@ template <typename T>
 class MYVector {
 private:
     size_t _size = 0;
-    size_t max_size = 1;
+    size_t max_size = 0;
     int* data;
     T allocator;
 
@@ -51,20 +51,25 @@ public:
 
     void push_back(int v) {
         if (_size + 1 >= max_size) {
-            auto res = allocator.allocate_at_least(max_size * 2);
+            size_t new_size = max_size * 2;
+            if (new_size == 0) {
+                new_size = 1;
+            }
+            auto res = allocator.allocate_at_least(new_size);
             auto new_data = res.ptr;
 
             for (size_t i = 0; i < _size; i++) {
                 *(new_data + i) = *(data + i);
             }
-            *(new_data + _size) = v;
 
-            allocator.deallocate(data, _size);
+
+            allocator.deallocate(data, max_size);
 
             data = new_data;
             max_size = res.count;
-            _size += 1;
         }
+        *(data + _size) = v;
+        _size += 1;
     }
 
     int operator[](size_t idx) {
@@ -78,20 +83,28 @@ public:
 
 int main()
 {
-    map<int, int, std::less<>, MyAllocator<std::pair<const int, int>>> myMap;
 
-    for (int i = 0; i < 10; i++) {
-        myMap[i] = i;
+    {
+        cout << "MAP\n";
+        map<int, int, std::less<>, MyAllocator<std::pair<const int, int>>> myMap;
+
+        for (int i = 0; i < 10; i++) {
+            myMap[i] = i;
+        }
     }
 
+    cout << "------------------------";
 
-    MYVector<MyAllocator<int>> myVec;
-    for (int i = 0; i < 10; i++) {
-        myVec.push_back(i + 1);
-    }
+    {
+        cout << "MY CONTAINER\n";
+        MYVector<MyAllocator<int>> myVec;
+        for (int i = 0; i < 10; i++) {
+            myVec.push_back(i + 1);
+        }
 
-    for (size_t i = 0; i < myVec.size(); i++) {
-        cout << i << ": " << myVec[i] << endl;
+        for (size_t i = 0; i < myVec.size(); i++) {
+            cout << i << ": " << myVec[i] << endl;
+        }
     }
 
     return 0;
