@@ -4,7 +4,7 @@
 
 using namespace std;
 
-template <typename T>
+template <class T>
 class MyAllocator {
 public:
     using value_type = T;
