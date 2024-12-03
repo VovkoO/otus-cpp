@@ -33,13 +33,13 @@ public:
     }
 };
 
-template <typename T>
+template <typename Alloc>
 class MYVector {
 private:
     size_t _size = 0;
     size_t max_size = 0;
     int* data;
-    T allocator;
+    Alloc allocator;
 
 public:
     MYVector() = default;
