@@ -1,15 +1,11 @@
 cmake_minimum_required(VERSION 3.30 FATAL_ERROR)
+
+project("allocator" LANGUAGES CXX)
+
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-#set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD ON)
-
-if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-    if (CMAKE_CXX_COMPILER_VERSION VERSION_LESS 18.1.2)
-        message(FATAL_ERROR "Clang version must be at least 18.1.2")
-    endif()
-else()
-    message(FATAL_ERROR "Only Clang is supported")
-endif()
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_COMPILER "/usr/bin/g++-13")
 
 set(PATCH_VERSION "1" CACHE INTERNAL "Patch version")
 set(PROJECT_VESRION 0.0.${PATCH_VERSION})
