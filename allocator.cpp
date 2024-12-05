@@ -83,7 +83,6 @@ public:
 
 int main()
 {
-
     {
         cout << "MAP\n";
         map<int, int, std::less<>, MyAllocator<std::pair<const int, int>>> myMap;
