@@ -14,6 +14,8 @@ jobs:
           submodules: true
       - run: sudo apt remove clang clang-14
       - run: sudo apt update && sudo apt install clang-15 clang-tools-15 lldb-15 lld-15 libboost-test-dev -y
+      - run: sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-15 150
+      - run: sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-15 150
       - run: export CC=clang-15
       - run: export CXX=clang++-15
       - run: gcc --version
