@@ -10,7 +10,7 @@ using namespace std;
 template <typename T>
 struct allocation_result {
     T ptr;
-    std::size_t size;
+    std::size_t count;
 };
 
 template <class T>
