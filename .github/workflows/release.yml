@@ -13,12 +13,12 @@ jobs:
         with:
           submodules: true
       - run: sudo apt update && sudo apt install clang-15 clang++-15 clang-tools-15 lldb-15 lld-15 libboost-test-dev -y
+      - run: export CC=clang-15
+      - run: export CXX=clang++-15
       - run: gcc --version
       - run: clang --version
       - run: clang++ --version
       - run: cmake --version
-      - run: export CC=clang-15
-      - run: export CXX=clang++-15
       - run: cmake . -DPATCH_VERSION=${{ github.run_number }} -DWITH_BOOST_TEST=ON
       - run: cmake --build .
       - run: cmake --build . --target package
