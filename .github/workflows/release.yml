@@ -22,7 +22,7 @@ jobs:
       - run: clang --version
       - run: clang++ --version
       - run: cmake --version
-      - run: cmake . -DCMAKE_C_COMPILER=clang-15 -DCMAKE_CXX_COMPILER=clang++-15 -DPATCH_VERSION=${{ github.run_number }} -DWITH_BOOST_TEST=ON
+      - run: cmake . -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_C_COMPILER=clang-15 -DCMAKE_CXX_COMPILER=clang++-15 -DPATCH_VERSION=${{ github.run_number }} -DWITH_BOOST_TEST=ON
       - run: cmake --build .
       - run: cmake --build . --target package
       - name: Create Release
