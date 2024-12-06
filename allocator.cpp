@@ -7,6 +7,12 @@
 
 using namespace std;
 
+template <typename T>
+struct allocation_result {
+    T ptr;
+    std::size_t size;
+};
+
 template <class T>
 class MyAllocator {
 public:
@@ -17,7 +23,7 @@ public:
         return static_cast<T*>(::operator new(sizeof(T) * n));
     }
 
-    constexpr std::allocation_result<T*> allocate_at_least( std::size_t n ) {
+    constexpr allocation_result<T*> allocate_at_least( std::size_t n ) {
         cout << "allocate_at_least n: " << n << endl;
         return {static_cast<T*>(::operator new(sizeof(T) * n)), n};
     }
