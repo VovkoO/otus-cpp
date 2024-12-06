@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
-      - run: sudo apt update && sudo apt install clang-15 clang++-15 clang-tools-15 lldb-15 lld-15 libboost-test-dev -y
+      - run: sudo apt update && sudo apt install clang-15 clang-tools-15 lldb-15 lld-15 libboost-test-dev -y
       - run: export CC=clang-15
       - run: export CXX=clang++-15
       - run: gcc --version
