@@ -7,11 +7,11 @@
 
 using namespace std;
 
-//template <typename T>
-//struct allocation_result {
-//    T ptr;
-//    std::size_t count;
-//};
+template <typename T>
+struct allocation_result {
+    T ptr;
+    std::size_t count;
+};
 
 template <class T>
 class MyAllocator {
