@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <functional>
 
 using namespace std;
 
@@ -35,36 +36,14 @@ void printIP(const vector<int>& v) {
     }
 }
 
-void filter(const vector<vector<int> >& vec, int i) {
-    for (auto& v : vec) {
-        if (v[0] == i) {
+void filter(const vector<vector<int> >& ips, const std::function<bool(const vector<int> &)> f) {
+    for (auto &v: ips) {
+        if (f(v)) {
             printIP(v);
             cout << endl;
         }
     }
 }
-
-void filter(const vector<vector<int> >& vec, int i, int j) {
-    for (auto& v : vec) {
-        if (v[0] == i && v[1] == j){
-            printIP(v);
-            cout << endl;
-        }
-    }
-}
-
-void filterAny(const vector<vector<int> >& vec, int i) {
-    for (auto& v : vec) {
-        for (auto z : v) {
-            if (z == i) {
-                printIP(v);
-                cout << endl;
-                break;
-            }
-        }
-    }
-}
-
 
 int main()
 {
@@ -93,11 +72,11 @@ int main()
         }
 
 //        cout << "ip 1\n";
-        filter(ip_pool, 1);
+        filter(ip_pool, [](const vector<int>& vec){return vec[0] == 1;});
 //        cout << "ip 46 70\n";
-        filter(ip_pool, 46, 70);
+        filter(ip_pool, [](const vector<int>& vec){return vec[0] == 46 && vec[1] == 70;});
 //        cout << "ip_any 46\n";
-        filterAny(ip_pool, 46);
+        filter(ip_pool, [](const vector<int>& vec){return vec[0] == 46 || vec[1] == 70 || vec[2] == 46 || vec[3] == 46;});
     }
     catch(const exception &e)
     {
