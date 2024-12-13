@@ -1,9 +1,8 @@
 {
-	"archive" : {},
 	"artifacts" : 
 	[
 		{
-			"path" : "libip_filter.a"
+			"path" : "ip_filter_cli"
 		}
 	],
 	"backtrace" : 1,
@@ -11,9 +10,10 @@
 	{
 		"commands" : 
 		[
-			"add_library",
+			"add_executable",
+			"install",
+			"target_link_libraries",
 			"target_compile_options",
-			"target_include_directories",
 			"set_target_properties"
 		],
 		"files" : 
@@ -28,23 +28,29 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 11,
+				"line" : 10,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 37,
+				"line" : 42,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 18,
+				"line" : 22,
 				"parent" : 0
 			},
 			{
 				"command" : 3,
+				"file" : 0,
+				"line" : 34,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
 				"file" : 0,
 				"line" : 13,
 				"parent" : 0
@@ -60,27 +66,20 @@
 					"fragment" : "-g -std=gnu++2b -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -mmacosx-version-min=14.0 -fcolor-diagnostics"
 				},
 				{
-					"backtrace" : 2,
+					"backtrace" : 4,
 					"fragment" : "-Wall"
 				},
 				{
-					"backtrace" : 2,
+					"backtrace" : 4,
 					"fragment" : "-Wextra"
 				},
 				{
-					"backtrace" : 2,
+					"backtrace" : 4,
 					"fragment" : "-pedantic"
 				},
 				{
-					"backtrace" : 2,
+					"backtrace" : 4,
 					"fragment" : "-Werror"
-				}
-			],
-			"includes" : 
-			[
-				{
-					"backtrace" : 3,
-					"path" : "/Users/vladimir.razdrogin/dev/otus-cpp/cmake-build-debug"
 				}
 			],
 			"language" : "CXX",
@@ -88,7 +87,7 @@
 			{
 				"backtraces" : 
 				[
-					4
+					5
 				],
 				"standard" : "23"
 			},
@@ -98,9 +97,50 @@
 			]
 		}
 	],
-	"id" : "ip_filter::@6890427a1f51a3e7e1df",
-	"name" : "ip_filter",
-	"nameOnDisk" : "libip_filter.a",
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 3,
+			"id" : "ip_filter::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "ip_filter_cli::@6890427a1f51a3e7e1df",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 2,
+				"path" : "bin"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "/usr/local"
+		}
+	},
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "libip_filter.a",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "ip_filter_cli",
+	"nameOnDisk" : "ip_filter_cli",
 	"paths" : 
 	{
 		"build" : ".",
@@ -121,9 +161,9 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "ip_filter.cpp",
+			"path" : "print_ip.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],
-	"type" : "STATIC_LIBRARY"
+	"type" : "EXECUTABLE"
 }

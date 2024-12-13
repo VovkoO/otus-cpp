@@ -69,28 +69,28 @@ include CMakeFiles/ip_filter.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/ip_filter.dir/flags.make
 
-CMakeFiles/ip_filter.dir/ip_filter.cpp.o: CMakeFiles/ip_filter.dir/flags.make
-CMakeFiles/ip_filter.dir/ip_filter.cpp.o: /Users/vladimir.razdrogin/dev/otus-cpp/ip_filter.cpp
-CMakeFiles/ip_filter.dir/ip_filter.cpp.o: CMakeFiles/ip_filter.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/vladimir.razdrogin/dev/otus-cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ip_filter.dir/ip_filter.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ip_filter.dir/ip_filter.cpp.o -MF CMakeFiles/ip_filter.dir/ip_filter.cpp.o.d -o CMakeFiles/ip_filter.dir/ip_filter.cpp.o -c /Users/vladimir.razdrogin/dev/otus-cpp/ip_filter.cpp
+CMakeFiles/ip_filter.dir/print_ip.cpp.o: CMakeFiles/ip_filter.dir/flags.make
+CMakeFiles/ip_filter.dir/print_ip.cpp.o: /Users/vladimir.razdrogin/dev/otus-cpp/print_ip.cpp
+CMakeFiles/ip_filter.dir/print_ip.cpp.o: CMakeFiles/ip_filter.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/vladimir.razdrogin/dev/otus-cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ip_filter.dir/print_ip.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ip_filter.dir/print_ip.cpp.o -MF CMakeFiles/ip_filter.dir/print_ip.cpp.o.d -o CMakeFiles/ip_filter.dir/print_ip.cpp.o -c /Users/vladimir.razdrogin/dev/otus-cpp/print_ip.cpp
 
-CMakeFiles/ip_filter.dir/ip_filter.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ip_filter.dir/ip_filter.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/vladimir.razdrogin/dev/otus-cpp/ip_filter.cpp > CMakeFiles/ip_filter.dir/ip_filter.cpp.i
+CMakeFiles/ip_filter.dir/print_ip.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ip_filter.dir/print_ip.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/vladimir.razdrogin/dev/otus-cpp/print_ip.cpp > CMakeFiles/ip_filter.dir/print_ip.cpp.i
 
-CMakeFiles/ip_filter.dir/ip_filter.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ip_filter.dir/ip_filter.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/vladimir.razdrogin/dev/otus-cpp/ip_filter.cpp -o CMakeFiles/ip_filter.dir/ip_filter.cpp.s
+CMakeFiles/ip_filter.dir/print_ip.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ip_filter.dir/print_ip.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/vladimir.razdrogin/dev/otus-cpp/print_ip.cpp -o CMakeFiles/ip_filter.dir/print_ip.cpp.s
 
 # Object files for target ip_filter
 ip_filter_OBJECTS = \
-"CMakeFiles/ip_filter.dir/ip_filter.cpp.o"
+"CMakeFiles/ip_filter.dir/print_ip.cpp.o"
 
 # External object files for target ip_filter
 ip_filter_EXTERNAL_OBJECTS =
 
-libip_filter.a: CMakeFiles/ip_filter.dir/ip_filter.cpp.o
+libip_filter.a: CMakeFiles/ip_filter.dir/print_ip.cpp.o
 libip_filter.a: CMakeFiles/ip_filter.dir/build.make
 libip_filter.a: CMakeFiles/ip_filter.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/vladimir.razdrogin/dev/otus-cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libip_filter.a"

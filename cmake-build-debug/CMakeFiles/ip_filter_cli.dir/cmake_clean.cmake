@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/ip_filter_cli.dir/ip_filter.cpp.o"
-  "CMakeFiles/ip_filter_cli.dir/ip_filter.cpp.o.d"
+  "CMakeFiles/ip_filter_cli.dir/print_ip.cpp.o"
+  "CMakeFiles/ip_filter_cli.dir/print_ip.cpp.o.d"
   "ip_filter_cli"
   "ip_filter_cli.pdb"
 )
