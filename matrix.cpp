@@ -50,6 +50,10 @@ private:
     map<pair<int, int>, T> data;
 
 public:
+    ~Matrix() {
+        std::destroy(data.begin(), data.end());
+    }
+
     class iterator {
         using inner_iterator = typename map<pair<int, int>, T>::const_iterator;
 
