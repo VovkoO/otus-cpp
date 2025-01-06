@@ -19,40 +19,19 @@ public:
     using value_type = T;
 
     constexpr T* allocate( std::size_t n ) {
-        cout << "allocate" << n;
-        free = false;
-        if (size == 0) {
-            cout << " first time ";
-            mem = static_cast<T*>(::operator new(sizeof(T) * n * 100));
-            start_pointer = mem;
-            size = n * 100;
-        }
-
-        if (size >= n) {
-            cout << " got existed" << endl;
-            T* allocated = mem;
-            mem += n;
-            size -= n;
-            return allocated;
-        } else {
-            throw "insufficient memory";
-        }
+        cout << "allocate n: " << n << endl;
+        return static_cast<T*>(::operator new(sizeof(T) * n));
     }
 
     constexpr allocation_result<T*> allocate_at_least( std::size_t n ) {
         cout << "allocate_at_least n: " << n << endl;
-        mem = static_cast<T*>(::operator new(sizeof(T) * n * 100));
-        start_pointer = mem;
-        size = n * 100;
-        free = false;
-        return {mem, n*100};
+        return {static_cast<T*>(::operator new(sizeof(T) * n)), n};
     }
 
     void deallocate( T* p, std::size_t n ) {
-        cout << "deallocate n: " << n << " p:" << p << endl;
-        if (!free) {
-            ::operator delete(start_pointer);
-            free = true;
+        cout << "deallocate n: " << n << endl;
+        if (n > 0) {
+            ::operator delete(p);
         }
     }
 
@@ -61,12 +40,6 @@ public:
         cout << "operator==\n";
         return true;
     }
-
-private:
-    bool free = false;
-    T* start_pointer;
-    T* mem;
-    size_t size = 0;
 };
 
 template <typename Alloc>
@@ -117,7 +90,6 @@ public:
     }
 };
 
-
 int main()
 {
     {
@@ -127,11 +99,6 @@ int main()
         for (int i = 0; i < 10; i++) {
             myMap[i] = i;
         }
-
-//        for (int i = 0; i < 10; i++) {
-//            cout << myMap[i] << " ";
-//        }
-//        cout << endl;
     }
 
     cout << "------------------------";
