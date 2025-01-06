@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.30 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.29.6 FATAL_ERROR)
 
 project("allocator" LANGUAGES CXX)
 
