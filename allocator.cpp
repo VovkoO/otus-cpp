@@ -7,11 +7,11 @@
 
 using namespace std;
 
-template <typename T>
-struct allocation_result {
-    T ptr;
-    std::size_t count;
-};
+//template <typename T>
+//struct allocation_result {
+//    T ptr;
+//    std::size_t count;
+//};
 
 template <class T>
 class MyAllocator {
@@ -86,7 +86,7 @@ public:
     }
 
     void push_back(int v) {
-        if (max_size == 0) {
+        if (_size + 1 >= max_size) {
             size_t new_size = max_size * 2;
             if (new_size == 0) {
                 new_size = 1;
@@ -104,9 +104,6 @@ public:
             data = new_data;
             max_size = res.count;
         }
-        if (_size + 1 > max_size) {
-            throw "insufficient memory";
-        }
         *(data + _size) = v;
         _size += 1;
     }
@@ -119,6 +116,7 @@ public:
         return _size;
     }
 };
+
 
 int main()
 {
