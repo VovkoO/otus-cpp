@@ -18,12 +18,9 @@ class MyAllocator {
 public:
     using value_type = T;
 
-    ~MyAllocator() {
-        ::operator delete(start_pointer);
-    }
-
     constexpr T* allocate( std::size_t n ) {
         cout << "allocate" << n;
+        free = false;
         if (size == 0) {
             cout << " first time ";
             mem = static_cast<T*>(::operator new(sizeof(T) * n * 100));
@@ -47,11 +44,16 @@ public:
         mem = static_cast<T*>(::operator new(sizeof(T) * n * 100));
         start_pointer = mem;
         size = n * 100;
+        free = false;
         return {mem, n*100};
     }
 
     void deallocate( T* p, std::size_t n ) {
         cout << "deallocate n: " << n << " p:" << p << endl;
+        if (!free) {
+            ::operator delete(start_pointer);
+            free = true;
+        }
     }
 
     template <typename U>
@@ -61,9 +63,10 @@ public:
     }
 
 private:
+    bool free = false;
     T* start_pointer;
     T* mem;
-    size_t size;
+    size_t size = 0;
 };
 
 template <typename Alloc>
