@@ -63,8 +63,8 @@ CMAKE_BINARY_DIR = /Users/vladimir.razdrogin/dev/otus-cpp/cmake-build-debug
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/ip_filter_cli.dir/all
-all: CMakeFiles/ip_filter.dir/all
+all: CMakeFiles/matrix_cli.dir/all
+all: CMakeFiles/matrix.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -72,61 +72,61 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/ip_filter_cli.dir/clean
-clean: CMakeFiles/ip_filter.dir/clean
+clean: CMakeFiles/matrix_cli.dir/clean
+clean: CMakeFiles/matrix.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/ip_filter_cli.dir
+# Target rules for target CMakeFiles/matrix_cli.dir
 
 # All Build rule for target.
-CMakeFiles/ip_filter_cli.dir/all: CMakeFiles/ip_filter.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ip_filter_cli.dir/build.make CMakeFiles/ip_filter_cli.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ip_filter_cli.dir/build.make CMakeFiles/ip_filter_cli.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/vladimir.razdrogin/dev/otus-cpp/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target ip_filter_cli"
-.PHONY : CMakeFiles/ip_filter_cli.dir/all
+CMakeFiles/matrix_cli.dir/all: CMakeFiles/matrix.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/matrix_cli.dir/build.make CMakeFiles/matrix_cli.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/matrix_cli.dir/build.make CMakeFiles/matrix_cli.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/vladimir.razdrogin/dev/otus-cpp/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target matrix_cli"
+.PHONY : CMakeFiles/matrix_cli.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/ip_filter_cli.dir/rule: cmake_check_build_system
+CMakeFiles/matrix_cli.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/vladimir.razdrogin/dev/otus-cpp/cmake-build-debug/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ip_filter_cli.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/matrix_cli.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/vladimir.razdrogin/dev/otus-cpp/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/ip_filter_cli.dir/rule
+.PHONY : CMakeFiles/matrix_cli.dir/rule
 
 # Convenience name for target.
-ip_filter_cli: CMakeFiles/ip_filter_cli.dir/rule
-.PHONY : ip_filter_cli
+matrix_cli: CMakeFiles/matrix_cli.dir/rule
+.PHONY : matrix_cli
 
 # clean rule for target.
-CMakeFiles/ip_filter_cli.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ip_filter_cli.dir/build.make CMakeFiles/ip_filter_cli.dir/clean
-.PHONY : CMakeFiles/ip_filter_cli.dir/clean
+CMakeFiles/matrix_cli.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/matrix_cli.dir/build.make CMakeFiles/matrix_cli.dir/clean
+.PHONY : CMakeFiles/matrix_cli.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/ip_filter.dir
+# Target rules for target CMakeFiles/matrix.dir
 
 # All Build rule for target.
-CMakeFiles/ip_filter.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ip_filter.dir/build.make CMakeFiles/ip_filter.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ip_filter.dir/build.make CMakeFiles/ip_filter.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/vladimir.razdrogin/dev/otus-cpp/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target ip_filter"
-.PHONY : CMakeFiles/ip_filter.dir/all
+CMakeFiles/matrix.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/matrix.dir/build.make CMakeFiles/matrix.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/matrix.dir/build.make CMakeFiles/matrix.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/vladimir.razdrogin/dev/otus-cpp/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target matrix"
+.PHONY : CMakeFiles/matrix.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/ip_filter.dir/rule: cmake_check_build_system
+CMakeFiles/matrix.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/vladimir.razdrogin/dev/otus-cpp/cmake-build-debug/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ip_filter.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/matrix.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/vladimir.razdrogin/dev/otus-cpp/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/ip_filter.dir/rule
+.PHONY : CMakeFiles/matrix.dir/rule
 
 # Convenience name for target.
-ip_filter: CMakeFiles/ip_filter.dir/rule
-.PHONY : ip_filter
+matrix: CMakeFiles/matrix.dir/rule
+.PHONY : matrix
 
 # clean rule for target.
-CMakeFiles/ip_filter.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ip_filter.dir/build.make CMakeFiles/ip_filter.dir/clean
-.PHONY : CMakeFiles/ip_filter.dir/clean
+CMakeFiles/matrix.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/matrix.dir/build.make CMakeFiles/matrix.dir/clean
+.PHONY : CMakeFiles/matrix.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

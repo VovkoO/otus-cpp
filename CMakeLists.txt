@@ -3,43 +3,44 @@ cmake_minimum_required(VERSION 3.12)
 set(PATCH_VERSION "1" CACHE INTERNAL "Patch version")
 set(PROJECT_VESRION 0.0.${PATCH_VERSION})
 
-project(print_ip VERSION ${PROJECT_VESRION})
+project(matrix VERSION ${PROJECT_VESRION})
 
 option(WITH_BOOST_TEST "Whether to build Boost test" ON)
 
-add_executable(print_ip_cli print_ip.cpp)
-add_library(print_ip print_ip.cpp)
+add_executable(matrix_cli matrix.cpp)
+add_library(matrix matrix.cpp
+        matrix.cpp)
 
-set_target_properties(print_ip_cli print_ip PROPERTIES
+set_target_properties(matrix_cli matrix PROPERTIES
     CXX_STANDARD 23
     CXX_STANDARD_REQUIRED ON
 )
 
-target_include_directories(print_ip
+target_include_directories(matrix
     PRIVATE "${CMAKE_BINARY_DIR}"
 )
 
-target_link_libraries(print_ip_cli PRIVATE
-    print_ip
+target_link_libraries(matrix_cli PRIVATE
+    matrix
 )
 
 if (MSVC)
-    target_compile_options(print_ip_cli PRIVATE
+    target_compile_options(matrix_cli PRIVATE
         /W4
     )
-    target_compile_options(print_ip PRIVATE
+    target_compile_options(matrix PRIVATE
         /W4
     )
 else ()
-    target_compile_options(print_ip_cli PRIVATE
+    target_compile_options(matrix_cli PRIVATE
         -Wall -Wextra -pedantic -Werror
     )
-    target_compile_options(print_ip PRIVATE
+    target_compile_options(matrix PRIVATE
         -Wall -Wextra -pedantic -Werror
     )
 endif()
 
-install(TARGETS print_ip_cli RUNTIME DESTINATION bin)
+install(TARGETS matrix_cli RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
 set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")

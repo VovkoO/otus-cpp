@@ -899,7 +899,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "ip_filter"
+			"value" : "matrix"
 		},
 		{
 			"name" : "CMAKE_PROJECT_VERSION",
@@ -1439,6 +1439,78 @@
 		},
 		{
 			"name" : "ip_filter_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/vladimir.razdrogin/dev/otus-cpp"
+		},
+		{
+			"name" : "matrix_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/vladimir.razdrogin/dev/otus-cpp/cmake-build-debug"
+		},
+		{
+			"name" : "matrix_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "matrix_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/vladimir.razdrogin/dev/otus-cpp"
+		},
+		{
+			"name" : "print_ip_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/vladimir.razdrogin/dev/otus-cpp/cmake-build-debug"
+		},
+		{
+			"name" : "print_ip_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "print_ip_SOURCE_DIR",
 			"properties" : 
 			[
 				{
