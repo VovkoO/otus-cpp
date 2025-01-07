@@ -19,17 +19,17 @@ public:
     using value_type = T;
 
     constexpr T* allocate( std::size_t n ) {
-        cout << "allocate n: " << n << endl;
+//        cout << "allocate n: " << n << endl;
         return static_cast<T*>(::operator new(sizeof(T) * n));
     }
 
     constexpr allocation_result<T*> allocate_at_least( std::size_t n ) {
-        cout << "allocate_at_least n: " << n << endl;
+//        cout << "allocate_at_least n: " << n << endl;
         return {static_cast<T*>(::operator new(sizeof(T) * n)), n};
     }
 
     void deallocate( T* p, std::size_t n ) {
-        cout << "deallocate n: " << n << endl;
+//        cout << "deallocate n: " << n << endl;
         if (n > 0) {
             ::operator delete(p);
         }
