@@ -1,14 +1,12 @@
-cmake_minimum_required(VERSION 3.30 FATAL_ERROR)
-
-project("allocator" LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.31 FATAL_ERROR)
 
 set(CMAKE_CXX_STANDARD 23)
-set(CMAKE_CXX_KNOWN_FEATURES cxx_std_23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(PATCH_VERSION "1" CACHE INTERNAL "Patch version")
 set(PROJECT_VESRION 0.0.${PATCH_VERSION})
 
-project(allocator VERSION ${PROJECT_VESRION})
+project(allocator VERSION ${PROJECT_VESRION} LANGUAGES CXX)
 
 option(WITH_BOOST_TEST "Whether to build Boost test" ON)
 
