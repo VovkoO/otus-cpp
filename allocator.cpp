@@ -37,7 +37,6 @@ public:
 
     template <typename U>
     bool operator==(const MyAllocator<U>&) const noexcept {
-        cout << "operator==\n";
         return true;
     }
 };
