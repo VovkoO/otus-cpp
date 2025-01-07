@@ -11,7 +11,7 @@
 
 
 set(CPACK_BUILD_SOURCE_DIRS "/Users/vladimir.razdrogin/dev/otus-cpp;/Users/vladimir.razdrogin/dev/otus-cpp/cmake-build-debug")
-set(CPACK_CMAKE_GENERATOR "Unix Makefiles")
+set(CPACK_CMAKE_GENERATOR "Ninja")
 set(CPACK_COMPONENT_UNSPECIFIED_HIDDEN "TRUE")
 set(CPACK_COMPONENT_UNSPECIFIED_REQUIRED "TRUE")
 set(CPACK_DEFAULT_PACKAGE_DESCRIPTION_FILE "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Templates/CPack.GenericDescription.txt")
@@ -44,6 +44,7 @@ set(CPACK_PACKAGE_VERSION "0.0.1")
 set(CPACK_PACKAGE_VERSION_MAJOR "0")
 set(CPACK_PACKAGE_VERSION_MINOR "0")
 set(CPACK_PACKAGE_VERSION_PATCH "1")
+set(CPACK_PRODUCTBUILD_DOMAINS "ON")
 set(CPACK_RESOURCE_FILE_LICENSE "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Templates/CPack.GenericLicense.txt")
 set(CPACK_RESOURCE_FILE_README "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Templates/CPack.GenericDescription.txt")
 set(CPACK_RESOURCE_FILE_WELCOME "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Templates/CPack.GenericWelcome.txt")

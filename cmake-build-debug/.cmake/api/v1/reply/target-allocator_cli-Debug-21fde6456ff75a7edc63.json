@@ -1,9 +1,8 @@
 {
-	"archive" : {},
 	"artifacts" : 
 	[
 		{
-			"path" : "liballocator.a"
+			"path" : "allocator_cli"
 		}
 	],
 	"backtrace" : 1,
@@ -11,9 +10,10 @@
 	{
 		"commands" : 
 		[
-			"add_library",
+			"add_executable",
+			"install",
+			"target_link_libraries",
 			"target_compile_options",
-			"target_include_directories",
 			"set_target_properties"
 		],
 		"files" : 
@@ -28,25 +28,31 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 12,
+				"line" : 14,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 38,
+				"line" : 46,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 19,
+				"line" : 26,
 				"parent" : 0
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 14,
+				"line" : 38,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 17,
 				"parent" : 0
 			}
 		]
@@ -60,27 +66,20 @@
 					"fragment" : "-g -std=gnu++2b -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -mmacosx-version-min=14.0 -fcolor-diagnostics"
 				},
 				{
-					"backtrace" : 2,
+					"backtrace" : 4,
 					"fragment" : "-Wall"
 				},
 				{
-					"backtrace" : 2,
+					"backtrace" : 4,
 					"fragment" : "-Wextra"
 				},
 				{
-					"backtrace" : 2,
+					"backtrace" : 4,
 					"fragment" : "-pedantic"
 				},
 				{
-					"backtrace" : 2,
+					"backtrace" : 4,
 					"fragment" : "-Werror"
-				}
-			],
-			"includes" : 
-			[
-				{
-					"backtrace" : 3,
-					"path" : "/Users/vladimir.razdrogin/dev/otus-cpp/cmake-build-debug"
 				}
 			],
 			"language" : "CXX",
@@ -88,7 +87,7 @@
 			{
 				"backtraces" : 
 				[
-					4
+					5
 				],
 				"standard" : "23"
 			},
@@ -98,9 +97,50 @@
 			]
 		}
 	],
-	"id" : "allocator::@6890427a1f51a3e7e1df",
-	"name" : "allocator",
-	"nameOnDisk" : "liballocator.a",
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 3,
+			"id" : "allocator::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "allocator_cli::@6890427a1f51a3e7e1df",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 2,
+				"path" : "bin"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "/usr/local"
+		}
+	},
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "liballocator.a",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "allocator_cli",
+	"nameOnDisk" : "allocator_cli",
 	"paths" : 
 	{
 		"build" : ".",
@@ -125,5 +165,5 @@
 			"sourceGroupIndex" : 0
 		}
 	],
-	"type" : "STATIC_LIBRARY"
+	"type" : "EXECUTABLE"
 }

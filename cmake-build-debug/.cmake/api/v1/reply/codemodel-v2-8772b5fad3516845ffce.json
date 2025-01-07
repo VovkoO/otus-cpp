@@ -7,10 +7,10 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-7712f8cefaf37e00f781.json",
+					"jsonFile" : "directory-.-Debug-d09415a6c6b9b979eaa8.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.12"
+						"string" : "3.29"
 					},
 					"projectIndex" : 0,
 					"source" : ".",
@@ -42,14 +42,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "allocator::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-allocator-Debug-c462faaa6cb0a72be915.json",
+					"jsonFile" : "target-allocator-Debug-55035eedb2248db213b3.json",
 					"name" : "allocator",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "allocator_cli::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-allocator_cli-Debug-ec58a1d9cb499185e3ee.json",
+					"jsonFile" : "target-allocator_cli-Debug-21fde6456ff75a7edc63.json",
 					"name" : "allocator_cli",
 					"projectIndex" : 0
 				}

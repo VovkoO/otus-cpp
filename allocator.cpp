@@ -4,34 +4,52 @@
 #include <memory>
 #include <memory_resource>
 #include <cstddef>
+#include <unordered_set>
 
 using namespace std;
 
-template <typename T>
-struct allocation_result {
-    T ptr;
-    std::size_t count;
-};
+//template <typename T>
+//struct allocation_result {
+//    T ptr;
+//    std::size_t count;
+//};
 
 template <class T>
 class MyAllocator {
 public:
     using value_type = T;
 
-    T* allocate( std::size_t n ) {
-        cout << "allocate n: " << n << endl;
-        return static_cast<T*>(::operator new(sizeof(T) * n));
+    T* allocate(size_t n) {
+        cout << "allocate n: " << n << " ";
+
+        if (n > free_size) {
+            cout << "new \n";
+            auto allocated = static_cast<T*>(::operator new(sizeof(T) * n * 10));
+            need_to_free.insert(allocated);
+            free_size = n * 9;
+            free_mem = allocated + (n * sizeof(T));
+            return allocated;
+        } else {
+            cout << "old \n";
+            auto allocated = free_mem;
+            free_size -= n;
+            free_mem += n * sizeof(T);
+            return allocated;
+        }
     }
 
     allocation_result<T*> allocate_at_least( std::size_t n ) {
         cout << "allocate_at_least n: " << n << endl;
-        return {static_cast<T*>(::operator new(sizeof(T) * n)), n};
+        auto allocated = static_cast<T*>(::operator new(sizeof(T) * n * 10));
+        need_to_free.insert(allocated);
+        return {allocated, n};
     }
 
     void deallocate( T* p, std::size_t n ) {
         cout << "deallocate n: " << n << endl;
-        if (n > 0) {
+        if (need_to_free.contains(p)) {
             ::operator delete(p);
+            need_to_free.erase(p);
         }
     }
 
@@ -40,6 +58,11 @@ public:
         cout << "operator==\n";
         return true;
     }
+
+private:
+    unordered_set<T*> need_to_free;
+    T* free_mem;
+    size_t free_size = 0;
 };
 
 template <typename Alloc>
@@ -49,6 +72,7 @@ private:
     size_t max_size = 0;
     int* data;
     Alloc allocator;
+
 
 public:
     MYVector() = default;
@@ -96,7 +120,7 @@ int main()
         cout << "MAP\n";
         map<int, int, std::less<>, MyAllocator<std::pair<const int, int>>> myMap;
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 20; i++) {
             myMap[i] = i;
         }
     }
