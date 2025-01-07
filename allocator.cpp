@@ -18,12 +18,12 @@ class MyAllocator {
 public:
     using value_type = T;
 
-    constexpr T* allocate( std::size_t n ) {
+    T* allocate( std::size_t n ) {
         cout << "allocate n: " << n << endl;
         return static_cast<T*>(::operator new(sizeof(T) * n));
     }
 
-    constexpr allocation_result<T*> allocate_at_least( std::size_t n ) {
+    allocation_result<T*> allocate_at_least( std::size_t n ) {
         cout << "allocate_at_least n: " << n << endl;
         return {static_cast<T*>(::operator new(sizeof(T) * n)), n};
     }
