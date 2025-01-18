@@ -82,8 +82,6 @@ istream& operator >> (istream& in, Bulk& b) {
 int main(int argc, char* argv[]) {
     size_t maxSize = strtoul(argv[argc - 1], nullptr, 10);
 
-    cout << maxSize << endl;
-
     queue<string> commands;
     queue<string> blocks;
 
