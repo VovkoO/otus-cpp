@@ -1,8 +1,9 @@
 {
+	"archive" : {},
 	"artifacts" : 
 	[
 		{
-			"path" : "bulk_cli"
+			"path" : "libbayan.a"
 		}
 	],
 	"backtrace" : 1,
@@ -10,10 +11,9 @@
 	{
 		"commands" : 
 		[
-			"add_executable",
-			"install",
-			"target_link_libraries",
+			"add_library",
 			"target_compile_options",
+			"target_include_directories",
 			"set_target_properties"
 		],
 		"files" : 
@@ -28,31 +28,25 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 14,
+				"line" : 21,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 47,
+				"line" : 41,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 27,
+				"line" : 26,
 				"parent" : 0
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 39,
-				"parent" : 0
-			},
-			{
-				"command" : 4,
-				"file" : 0,
-				"line" : 18,
+				"line" : 31,
 				"parent" : 0
 			}
 		]
@@ -66,20 +60,27 @@
 					"fragment" : "-g -std=gnu++2b -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -fcolor-diagnostics"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 2,
 					"fragment" : "-Wall"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 2,
 					"fragment" : "-Wextra"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 2,
 					"fragment" : "-pedantic"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 2,
 					"fragment" : "-Werror"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 3,
+					"path" : "/opt/homebrew/include"
 				}
 			],
 			"language" : "CXX",
@@ -87,60 +88,20 @@
 			{
 				"backtraces" : 
 				[
-					5
+					4
 				],
 				"standard" : "23"
 			},
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				2
 			]
 		}
 	],
-	"dependencies" : 
-	[
-		{
-			"backtrace" : 3,
-			"id" : "bulk::@6890427a1f51a3e7e1df"
-		}
-	],
-	"id" : "bulk_cli::@6890427a1f51a3e7e1df",
-	"install" : 
-	{
-		"destinations" : 
-		[
-			{
-				"backtrace" : 2,
-				"path" : "bin"
-			}
-		],
-		"prefix" : 
-		{
-			"path" : "/usr/local"
-		}
-	},
-	"link" : 
-	{
-		"commandFragments" : 
-		[
-			{
-				"fragment" : "-g",
-				"role" : "flags"
-			},
-			{
-				"fragment" : "",
-				"role" : "flags"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "libbulk.a",
-				"role" : "libraries"
-			}
-		],
-		"language" : "CXX"
-	},
-	"name" : "bulk_cli",
-	"nameOnDisk" : "bulk_cli",
+	"id" : "bayan::@6890427a1f51a3e7e1df",
+	"name" : "bayan",
+	"nameOnDisk" : "libbayan.a",
 	"paths" : 
 	{
 		"build" : ".",
@@ -152,7 +113,15 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				2
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				1
 			]
 		}
 	],
@@ -161,9 +130,20 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "bulk.cpp",
+			"path" : "bayan.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "file_checker.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "file_checker.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],
-	"type" : "EXECUTABLE"
+	"type" : "STATIC_LIBRARY"
 }

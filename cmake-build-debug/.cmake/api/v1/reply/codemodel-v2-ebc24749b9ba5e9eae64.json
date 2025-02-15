@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-f7b67ecb07beac6dc7e6.json",
+					"jsonFile" : "directory-.-Debug-bea7943ff4c193064113.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.29"
@@ -29,7 +29,7 @@
 					[
 						0
 					],
-					"name" : "bulk",
+					"name" : "bayan",
 					"targetIndexes" : 
 					[
 						0,
@@ -41,16 +41,16 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "bulk::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-bulk-Debug-5979d186a17024e0033a.json",
-					"name" : "bulk",
+					"id" : "bayan::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-bayan-Debug-2778c551e5b5e8aa0ab3.json",
+					"name" : "bayan",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
-					"id" : "bulk_cli::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-bulk_cli-Debug-2513f35ce2238634cc40.json",
-					"name" : "bulk_cli",
+					"id" : "bayan_cli::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-bayan_cli-Debug-155a9cc047fb81d3a5f2.json",
+					"name" : "bayan_cli",
 					"projectIndex" : 0
 				}
 			]

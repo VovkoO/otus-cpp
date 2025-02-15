@@ -14,6 +14,14 @@
 # EXTERNAL cache entries
 ########################
 
+//The directory containing a CMake configuration file for Boost.
+Boost_DIR:PATH=/opt/homebrew/lib/cmake/Boost-1.87.0
+
+//Path to a file.
+Boost_INCLUDE_DIR:PATH=/opt/homebrew/include
+
+Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE:STRING=/opt/homebrew/lib/libboost_program_options.dylib
+
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=CMAKE_ADDR2LINE-NOTFOUND
 
@@ -128,7 +136,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=bulk
+CMAKE_PROJECT_NAME:STATIC=bayan
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=0.0.1
@@ -232,19 +240,27 @@ CPACK_SOURCE_ZIP:BOOL=OFF
 WITH_BOOST_TEST:BOOL=ON
 
 //Value Computed by CMake
-bulk_BINARY_DIR:STATIC=/Users/vladimir.razdrogin/dev/otus-cpp/cmake-build-debug
+bayan_BINARY_DIR:STATIC=/Users/vladimir.razdrogin/dev/otus-cpp/cmake-build-debug
 
 //Value Computed by CMake
-bulk_IS_TOP_LEVEL:STATIC=ON
+bayan_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-bulk_SOURCE_DIR:STATIC=/Users/vladimir.razdrogin/dev/otus-cpp
+bayan_SOURCE_DIR:STATIC=/Users/vladimir.razdrogin/dev/otus-cpp
+
+//The directory containing a CMake configuration file for boost_headers.
+boost_headers_DIR:PATH=/opt/homebrew/lib/cmake/boost_headers-1.87.0
+
+//The directory containing a CMake configuration file for boost_program_options.
+boost_program_options_DIR:PATH=/opt/homebrew/lib/cmake/boost_program_options-1.87.0
 
 
 ########################
 # INTERNAL cache entries
 ########################
 
+//ADVANCED property for variable: Boost_DIR
+Boost_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_ADDR2LINE
 CMAKE_ADDR2LINE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
@@ -378,6 +394,12 @@ CPACK_SOURCE_TXZ-ADVANCED:INTERNAL=1
 CPACK_SOURCE_TZ-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CPACK_SOURCE_ZIP
 CPACK_SOURCE_ZIP-ADVANCED:INTERNAL=1
+//Details about finding Boost
+FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/opt/homebrew/lib/cmake/Boost-1.87.0/BoostConfig.cmake][cfound components: program_options ][v1.87.0()]
 //Patch version
 PATCH_VERSION:INTERNAL=1
+//ADVANCED property for variable: boost_headers_DIR
+boost_headers_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: boost_program_options_DIR
+boost_program_options_DIR-ADVANCED:INTERNAL=1
 
