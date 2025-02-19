@@ -7,6 +7,7 @@ using namespace std;
 
 class Bulk {
 private:
+    time_t startTime;
     Log lg;
     size_t maxSize;
     queue<string> commands;
@@ -29,7 +30,7 @@ private:
 
     void handleCommand(string& s) {
         if (commands.empty()) {
-            lg = Log();
+            time(&startTime);
         }
 
         if (s != "EOF") {
@@ -53,11 +54,11 @@ private:
             commands.pop();
         }
 
-        lg.Save(res);
+        lg.Save(startTime, res);
     }
 
 public:
-    Bulk(size_t maxSize): maxSize(maxSize) {
+    Bulk(size_t maxSize): lg(1, 2), maxSize(maxSize) {
         cout << "Bulk " << this->maxSize << endl;
     };
 
