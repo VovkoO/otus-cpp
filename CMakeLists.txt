@@ -8,6 +8,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(PATCH_VERSION "1" CACHE INTERNAL "Patch version")
 set(PROJECT_VESRION 0.0.${PATCH_VERSION})
 
+project(async LANGUAGES CXX VERSION ${PROJECT_VESRION})
+
 include_directories(include)
 
 add_library(async SHARED src/async.cpp)
